@@ -1,0 +1,43 @@
+<view>
+	<!-- banner -->
+	<view class="banner">
+		<image src="../../tabs/index/banner.png"></image>
+		<view class="page__bd bg">
+			<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+		</view>
+	</view>
+	<!-- 菜单栏 -->
+	<view class="menus">
+	<view class="menu-list active}}" bindtap="click">
+			<image src="../../tabs/index/fl.png"></image>
+			<text>美食分类</text>
+		</view>
+		<view class="menu-list" wx:for="{{menus}}" wx:key="id" bindtap="_getlist">
+			<image src="{{item.url}}"></image>
+			<text>{{item.cateName}}</text>
+		</view>
+	</view>
+</view>
+
+<!-- 热门 -->
+<view class="hot">
+	<mp-cell title="HOT" link class="hotfood">
+		<view>热门美食</view>
+	</mp-cell>
+	<view class="hot-list">
+		<view class="hot-list-item" wx:for="{{con}}" wx:key="cid" bindtap="_getdetail" data-cid="{{item.cid}}">
+			<image src="{{item.src}}" class="hotImg"></image>
+			<view class="tit">{{item.tit}}</view>
+			<view class="footitem">
+				<view class="item-left">
+					<image class="userImg" src="{{item.s_src}}"></image>
+					<text>{{item.user}}</text>
+				</view>
+        <view  class="item-right">
+          <mp-icon icon="eyes-on" color="black" size="{{25}}"></mp-icon>
+          <text>{{item.num}}</text>
+        </view>
+			</view>
+		</view>
+	</view>
+</view>

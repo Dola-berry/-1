@@ -1,0 +1,28 @@
+<!--pages/search/search.wxml-->
+<view class="search">
+	<form>
+		<view class="search-item">
+			<input placeholder="请搜索关键词" name="search"></input>
+			<mp-icon icon="search" size="{{20}}" class="searchIcon"></mp-icon>
+		</view>
+		<button bindtap="_getDemo">搜索</button>
+	</form>
+</view>
+<view class="search-con">
+	<view class="hotSearch">
+		<view class="title">热门搜索</view>
+		<view class="conlist">
+			<text>慕斯蛋糕</text>
+			<text>巧克力</text>
+			<text>牛奶</text>
+			<text>巧克力</text>
+			<text>牛奶</text>
+		</view>
+	</view>
+	<view class="nearSearch">
+		<view class="title">近期搜索</view>
+    <view class="conlist">
+			<text>暂无记录</text>
+		</view>
+	</view>
+</view>

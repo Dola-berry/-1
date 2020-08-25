@@ -1,0 +1,64 @@
+/* personPage/pages/management/management.wxss */
+.manage{
+  width: 750rpx;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.manage .manage-item{
+  display: flex;
+  /* flex-wrap: wrap; */
+  border: 2rpx solid #ccc;
+  width: 48%;
+  height: 100rpx;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.manage .manage-item .tit{
+  font-size: 24rpx;
+}
+.manage .manage-item .handle text{
+  /* display: inline-block; */
+  padding: 15rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  margin-left: 10rpx;
+
+}
+.manage .manage-item .handle .del{
+  background-color: #F36039;
+}
+.manage .manage-item .handle .edit{
+  background-color: #4378FB;
+}
+.manage .icon{
+  justify-content:space-around;
+}
+
+.addItem {
+  display: flex;
+  padding: 20rpx;
+  justify-content: space-between;
+}
+.addItem input {
+  border: 1px solid #ccc;
+  flex-grow: 1;
+  height: 60rpx;
+  margin-right: 20rpx;
+  padding-left: 20rpx;
+  border-radius: 20rpx;
+}
+.addItem text {
+  vertical-align: middle;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}

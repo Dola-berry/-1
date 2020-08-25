@@ -1,0 +1,58 @@
+/* foregroundPage/pages/detail/detail.wxss */
+page {
+  background-color:#f2f8f7;
+}
+.detail .detail-item image{
+  width: 100%;
+  height: 650rpx;
+  margin-bottom: 40rpx;
+}
+.detail .detail-item>view {
+  padding: 0 40rpx;
+}
+.detail .detail-item .title {
+  font-size: 32rpx;
+  font-weight: bolder;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.detail .detail-item .address {
+  font-size: 24rpx;
+  color: #ccc;
+  display: flex;
+}
+.detail .detail-item .address>view {
+  margin-right: 20rpx;
+  
+}
+.detail .detail-item-con {
+  margin: 40rpx;
+  border-top: 4rpx solid #ccc;
+}
+.detail .detail-item-con .description view {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+}
+.detail .detail-item-con .description text{
+  font-size: 24rpx;
+}
+.detail .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.detail .footer>view {
+  width: 50%;
+  text-align: center;
+  background-color: #fff;
+}
+.detail .footer .share {
+  background-color: #F06259;
+  color: #fff;
+}

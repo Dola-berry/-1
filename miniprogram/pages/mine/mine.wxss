@@ -1,0 +1,98 @@
+/* pages/mine/mine.wxss */
+page {
+  background-color:#f2f8f7;
+}
+.login {
+  height: 600rpx;
+  width: 750rpx;
+  position: relative;
+  background-color: #A3D399;
+}
+.login image {
+  width: 100%;
+  height: 100%;
+}
+.login .info {
+  position: absolute;
+  top: 140rpx;
+  left: 37%;
+  width:200rpx;
+  height: 200rpx;
+  text-align: center;
+}
+.login .info image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.login .info  text {
+  display: block;
+}
+.category .cateTit {
+  display: flex;
+  width: 100%;
+}
+.category .cateTit text {
+  flex-grow: 1;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+.category .cateTit text.active {
+  color: #A3D399;
+  margin-top: -2rpx;
+  border-bottom: 4rpx solid #A3D399;
+}
+.category .cateCon {
+padding: 20rpx;
+}
+.category .cateCon .likeList,
+.category .cateCon .foodList {
+display: flex;
+box-sizing: border-box;
+width: 100%;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.category .cateCon .likeList .likeList-item,
+.category .cateCon .foodList .foodList-item{
+  background-color: #fff;
+  border-radius: 40rpx;
+  padding-top: 20rpx;
+  width: 350rpx;
+  text-align: center;
+  height: 400rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #ccc;
+  margin-bottom: 20rpx;
+}
+.category .cateCon .likeList .likeList-item image,
+.category .cateCon .foodList .foodList-item image{
+  width:320rpx;
+  height: 300rpx;
+}
+.category .cateCon .likeList .likeList-item text
+.category .cateCon .foodList .foodList-item text{
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.category .cateCon .foodList .foodList-item .icon {
+  line-height:360rpx ;
+}
+/* .category .cateCon .cateList{
+  width: 100%;
+  height: auto;
+} */
+.msg {
+  width: 750rpx;
+  text-align: center;
+}
+.msg view {
+  font-size: 46rpx;
+  margin-top: 60rpx;
+}
+.msg image {
+width: 100%;
+}

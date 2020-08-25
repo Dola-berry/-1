@@ -1,0 +1,22 @@
+/* personPage/pages/publish/publish.wxss */
+.page__bd,
+.page-section {
+  background-color: #fff;
+}
+.page-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding:20rpx;
+}
+.page-section .radio-item {
+  display: inline-block;
+  margin: 10rpx 20rpx;
+}
+ button {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0;
+}

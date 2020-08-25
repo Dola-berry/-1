@@ -1,0 +1,20 @@
+<!--foregroundPage/pages/cate/cate.wxml-->
+<view class="cate">
+  	<!-- banner -->
+	<view class="banner">
+		<image src="../../../tabs/index/banner.jpg"></image>
+		<view class="page__bd bg">
+			<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+		</view>
+	</view>
+  <!-- 分类 -->
+  <view class="hot">
+		<mp-cell title="甜品/饮品类" link class="hotfood" bindtap="navigate"></mp-cell>
+		<mp-cell title="正餐类" link class="hotfood"></mp-cell>
+		<mp-cell title="零食类" link class="hotfood"></mp-cell>
+		<mp-cell title="烘焙类" link class="hotfood"></mp-cell>
+		<mp-cell title="外国美食类" link class="hotfood"></mp-cell>
+		<mp-cell title="烧烤/小吃类" link class="hotfood"></mp-cell>
+		<mp-cell title="火锅/砂锅类" link class="hotfood"></mp-cell>
+	</view>
+</view>

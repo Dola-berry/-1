@@ -1,0 +1,32 @@
+<!--foregroundPage/pages/detail/detail.wxml-->
+<view class="detail">
+	<view class="detail-item">
+		<image src="../../../tabs/index/6.png"></image>
+		<view class="title">SKORPOR FULLKORN 全麦卷饼</view>
+		<view class="address">
+			<view class="user">小樱</view>
+			<view class="like">
+				<text>2</text>收藏
+			</view>
+			<view class="eyes">
+				<text>22</text>浏览
+			</view>
+		</view>
+	</view>
+	<view class="detail-item-con">
+		<view class="description">
+			<view>美食描述</view>
+			<text>酥脆的烤全麦卷。早餐时搭配黄油、奶酪和橘子酱食用，或者伴着酸奶享用。</text>
+		</view>
+	</view>
+	<view class="footer">
+		<view class="like">
+			<mp-icon icon="like" size="{{25}}" color="#ccc"></mp-icon>
+			<text>关注</text>
+		</view>
+		<view class="share">
+			<mp-icon icon="share" size="{{25}}" color="#fff"></mp-icon>
+			<text>分享给朋友</text>
+		</view>
+	</view>
+</view>

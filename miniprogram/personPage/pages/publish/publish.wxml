@@ -1,0 +1,36 @@
+<!--personPage/pages/publish/publish.wxml-->
+<form bindsubmit="_bindPublish">
+	<view class="weui-cells__title">美食名称</view>
+	<view class="weui-cells weui-cells_after-title">
+		<view class="weui-cell">
+			<view class="weui-cell__bd">
+				<input class="weui-input" placeholder="请输入美食名称" name="recipeName" />
+			</view>
+		</view>
+	</view>
+	<view class="weui-cells__title">美食分类</view>
+	<view class="page-section">
+		<radio-group name="recipeId">
+			<label wx:for="{{menus}}" wx:key="_id" class="radio-item">
+				<radio value="{{item._id}}" checked="true" />{{item.typeName}}</label>
+		</radio-group>
+	</view>
+	<view class="weui-cells__title">美食图片</view>
+	<view class="page__bd">
+		<mp-cells>
+			<mp-cell>
+				<mp-uploader binddelete="_delFile" bindselect="_selectFile" upload="{{uplaodFile}}" files="{{files}}" max-count="5" title="图片上传" tips="图片上传提示"></mp-uploader>
+			</mp-cell>
+		</mp-cells>
+	</view>
+	<view class="weui-cells__title">文本域</view>
+	<view class="weui-cells weui-cells_after-title">
+		<view class="weui-cell">
+			<view class="weui-cell__bd">
+				<textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" name="recipeInfo" maxlength="-1"/>
+				<view class="weui-textarea-counter">不限字数</view>
+      </view>
+    </view>
+  </view>
+  <button type="primary" form-type="submit">发布</button>
+</form>

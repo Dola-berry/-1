@@ -1,0 +1,60 @@
+/* foregroundPage/pages/list/list.wxss */
+page {
+  background-color:#f2f8f7;
+}
+.list {
+  width: 750rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.list .list-item {
+  width: 100%;
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.list .list-item .img {
+  width: 300rpx;
+  height: 300rpx;
+}
+.list .list-item .img image{
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+.list .list-item .txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.list .list-item .txt .title{}
+.list .list-item .txt view {}
+.list .list-item .txt view .icon{
+  margin-bottom: 10rpx;
+}
+.list .list-item .txt .list-foot{
+  display: flex;
+  align-items:center;
+}
+.list .list-item .txt .list-foot .like,
+.list .list-item .txt .list-foot .eyes,
+.list .list-item .txt .list-foot .user{
+  margin-right: 20rpx;
+}
+.list .list-item .txt .list-foot .user image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.list .list-item .txt .list-foot text {
+  vertical-align: middle;
+  color: #ccc;
+  display: inline-block;
+  margin-left: 10rpx;
+}
+.list .list-item .txt .list-foot .like{}
+.list .list-item .txt .list-foot .eyes{}

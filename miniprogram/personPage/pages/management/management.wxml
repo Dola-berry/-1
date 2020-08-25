@@ -1,0 +1,29 @@
+<!--personPage/pages/management/management.wxml-->
+<view class="manage">
+	<!-- 分类列表 -->
+	<view class="manage-item" wx:for="{{typeList}}" wx:key="_id">
+		<view class="tit">{{item.typeName}}</view>
+		<view class="handle">
+			<text class="edit" bindtap="_editItem" data-value="{{item.typeName}}" data-id="{{item._id}}">修改</text>
+			<text class="del" bindtap="_delItem" data-id="{{item._id}}">删除</text>
+		</view>
+	</view>
+	<view class="manage-item icon" bindtap="_addItem">
+		<mp-icon icon="add" color="black" size="{{35}}"></mp-icon>
+	</view>
+</view>
+<!-- 添加分类 -->
+<view hidden="{{!isAddShow}}">
+	<view class="addItem">
+		<input placeholder="输入菜单分类" bindinput="_getAddValue"  value="{{typeName}}" focus="{{isAddShow}}"></input>
+		<text bindtap="_addManageItem">添加</text>
+	</view>
+</view>
+<!-- 修改分类 -->
+<view hidden="{{!isEditShow}}">
+	<view class="addItem">
+		<input placeholder="输入菜单分类" value="{{typeName}}" bindinput="_getEditValue" focus="{{isEditShow}}"></input>
+		<text bindtap="_editManageItem">修改</text>
+		<text bindtap="hiden">取消</text>
+	</view>
+</view>

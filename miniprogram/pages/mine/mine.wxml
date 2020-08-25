@@ -1,0 +1,68 @@
+<!--pages/mine/mine.wxml-->
+<view class="login">
+	<image src="../../tabs/loginbanner.png" style="display : {{isLogin ? 'block' : 'none'}}"></image>
+	<view class="info">
+		<image src="{{userInfo.avatarUrl}}" bindtap="_navpb"></image>
+		<button plain size="mini" open-type="getUserInfo" bindgetuserinfo="_getInfo" style="display:{{isLogin ? 'none' : 'block'}}" bindtap="getInfo">登录</button>
+		<text style="display : {{isLogin ? 'block' : 'none'}}">欢迎：{{userInfo.nickName}}</text>
+	</view>
+	<!-- <view class="info">
+		<image src="../../tabs/user1.jpg"></image>
+	</view> -->
+</view>
+<view class="category">
+	<view class="cateTit">
+		<text class="food {{currentId == 1 ? 'active' : ''}}" bindtap="_food" data-id="1">美食</text>
+		<text class="cate {{currentId == 2 ? 'active' : ''}}" bindtap="_cate" data-id="2">分类</text>
+		<text class="like {{currentId == 3 ? 'active' : ''}}" bindtap="_like" data-id="3">关注</text>
+	</view>
+	<view class="cateCon" wx:if="{{isLogin}}">
+		<view wx:if="{{currentId == 1}}">
+			<view class="foodList">
+				<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap"  class="foodList-item" wx:for="{{userMenus}}" wx:key="_id">
+					<image src="{{item.recipeImgs[0]}}"></image>
+					<text>{{item.recipeName}}</text>
+				</mp-slideview>
+				<!-- <view class="foodList-item" wx:for="{{userMenus}}" wx:key="_id">
+					<image src="{{item.recipeImgs[0]}}"></image>
+					<text>{{item.recipeName}}</text>
+				</view> -->
+				<view class="foodList-item" bindtap="_getAdd">
+					<mp-icon icon="add" color="#ccc" size="{{100}}" class="icon"></mp-icon>
+				</view>
+			</view>
+		</view>
+		<view wx:elif="{{currentId == 2}}">
+			<view class="cateList">
+				<view class="weui-cells">
+					<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+						<mp-cell value="零食类" footer="左划更多"></mp-cell>
+					</mp-slideview>
+				</view>
+				<view class="weui-cells">
+					<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+						<mp-cell value="零食类" footer="左划更多"></mp-cell>
+					</mp-slideview>
+				</view>
+				<view class="weui-cells">
+					<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+						<mp-cell value="左滑可以删除" footer="说明文字"></mp-cell>
+					</mp-slideview>
+				</view>
+			</view>
+
+		</view>
+		<view wx:elif="{{currentId == 3}}">
+			<view class="likeList">
+				<view class="likeList-item">
+					<image src="../../tabs/index/6.png"></image>
+					<text>全麦卷饼</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view wx:else class="msg">
+		<view>请先登录哟</view>
+		<image src="../../tabs/index/timg.png"></image>
+	</view>
+</view>

@@ -1,0 +1,65 @@
+<!--foregroundPage/pages/list/list.wxml-->
+<view class="list">
+	<view class="list-item">
+		<view class="img">
+			<image src="../../../tabs/index/1.png"></image>
+		</view>
+		<view class="txt">
+			<view class="title">杏仁姜汁饼干</view>
+			<view>
+				<view class="icon">
+					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}"></mp-icon>
+				</view>
+				<view class="list-foot">
+					<view class="user">
+						<image src="../../../tabs/user1.jpg"></image>
+						<text>小樱</text>
+					</view>
+					<view class="like">
+						<mp-icon icon="like" size="{{25}}" color="#ccc"></mp-icon>
+						<text>0</text>
+					</view>
+					<view class="eyes">
+						<mp-icon icon="eyes-on" size="{{25}}" color="#ccc"></mp-icon>
+						<text>0</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+  <view class="list-item">
+		<view class="img">
+			<image src="../../../tabs/index/1.png"></image>
+		</view>
+		<view class="txt">
+			<view class="title">杏仁姜汁饼干</view>
+			<view>
+				<view class="icon">
+					<mp-icon color="#ccc" icon="star" type="field" size="{{20}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{20}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{20}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{20}}"></mp-icon>
+					<mp-icon color="#ccc" icon="star" type="field" size="{{20}}"></mp-icon>
+				</view>
+				<view class="list-foot">
+					<view class="user">
+						<image src="../../../tabs/user1.jpg"></image>
+						<text>小樱</text>
+					</view>
+					<view class="like">
+						<mp-icon icon="like" size="{{25}}" color="#ccc"></mp-icon>
+						<text>0</text>
+					</view>
+					<view class="eyes">
+						<mp-icon icon="eyes-on" size="{{25}}" color="#ccc"></mp-icon>
+						<text>0</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
