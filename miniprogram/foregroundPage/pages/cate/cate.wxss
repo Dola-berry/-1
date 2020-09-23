@@ -19,19 +19,26 @@ page {
   transform: translateX(-50%);
   width: 700rpx;
 }
-.weui-search-bar__form {
-  background-color: transparent !important;
+.search-item{
+  float: left;
+  width: 450rpx;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 90rpx;
+
 }
-.banner .bg .weui-search-bar__box,
-.banner .bg .weui-search-bar__label {
-  background-color:#E6F2F0 ;
-  border-radius: 20rpx;
+.search-item input {
+background-color: #E6F2F0;
+  height: 90rpx;
+  border-radius: 40rpx;
+  width:635rpx;
+  padding-left: 50rpx;
+  font-size: 24rpx;
 }
-.banner .bg .weui-search-bar{
-  border-radius: 20rpx;
-  padding: 0;
-  padding-right: 20rpx;
-  background-color: #E6F2F0;
+ .search-item .searchIcon{
+position: absolute;
+left: 10rpx;
+top: 0rpx;
 }
 /* 搜索banner */
 /* 热门 */

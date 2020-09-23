@@ -36,7 +36,7 @@ Page({
       title: '是否删除',
       success: async (res) => {
         if (res.confirm) {
-          let res = await Api._delManageItemId(id);
+          await Api._delManageItemId(id);
           this._showManageItem()
         } else if (res.cancel) {
           return;
@@ -122,7 +122,7 @@ Page({
   },
   // 渲染数据
   async _showManageItem() {
-    let res = await Api._findManageItem();
+    let res = await Api._findManageItem({status:1});
     this.setData({
       typeList: res.data
     })

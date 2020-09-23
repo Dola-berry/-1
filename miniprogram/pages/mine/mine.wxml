@@ -1,10 +1,11 @@
 <!--pages/mine/mine.wxml-->
 <view class="login">
-	<image src="../../tabs/loginbanner.png" style="display : {{isLogin ? 'block' : 'none'}}"></image>
+	<!-- <image src="../../tabs/loginbanner.png" style="display : {{isLogin ? 'block' : 'none'}}"></image> -->
 	<view class="info">
-		<image src="{{userInfo.avatarUrl}}" bindtap="_navpb"></image>
-		<button plain size="mini" open-type="getUserInfo" bindgetuserinfo="_getInfo" style="display:{{isLogin ? 'none' : 'block'}}" bindtap="getInfo">登录</button>
-		<text style="display : {{isLogin ? 'block' : 'none'}}">欢迎：{{userInfo.nickName}}</text>
+		<image src="../../tabs/people.png" wx:if="{{!isLogin}}"></image>
+		<image src="{{userInfo.avatarUrl}}" bindtap="_navpb" wx:else></image>
+		<button plain size="mini" open-type="getUserInfo" bindgetuserinfo="_getInfo" wx:if="{{!isLogin}}">登录</button>
+		<text wx:else>欢迎：{{userInfo.nickName}}</text>
 	</view>
 	<!-- <view class="info">
 		<image src="../../tabs/user1.jpg"></image>
@@ -12,51 +13,54 @@
 </view>
 <view class="category">
 	<view class="cateTit">
-		<text class="food {{currentId == 1 ? 'active' : ''}}" bindtap="_food" data-id="1">美食</text>
+		<text class="food {{currentId == 1 ? 'active' : ''}}" bindtap="_food" data-id="1">零食</text>
 		<text class="cate {{currentId == 2 ? 'active' : ''}}" bindtap="_cate" data-id="2">分类</text>
 		<text class="like {{currentId == 3 ? 'active' : ''}}" bindtap="_like" data-id="3">关注</text>
+		<text class="like {{currentId == 4 ? 'active' : ''}}" bindtap="_audit" data-id="4" wx:if="{{isShow}}">待审核</text>
 	</view>
 	<view class="cateCon" wx:if="{{isLogin}}">
 		<view wx:if="{{currentId == 1}}">
 			<view class="foodList">
-				<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap"  class="foodList-item" wx:for="{{userMenus}}" wx:key="_id">
-					<image src="{{item.recipeImgs[0]}}"></image>
-					<text>{{item.recipeName}}</text>
-				</mp-slideview>
-				<!-- <view class="foodList-item" wx:for="{{userMenus}}" wx:key="_id">
-					<image src="{{item.recipeImgs[0]}}"></image>
-					<text>{{item.recipeName}}</text>
-				</view> -->
-				<view class="foodList-item" bindtap="_getAdd">
-					<mp-icon icon="add" color="#ccc" size="{{100}}" class="icon"></mp-icon>
+				<view wx:for="{{foodList}}" wx:key="_id" bindtap="_getFoodDetail" data-id="{{item._id}}" class="foodList-item">
+					<mp-slideview buttons="{{delButtons}}" bindbuttontap="_delButtonTap" data-id="{{item._id}}" data-idx="{{index}}">
+						<image src="{{item.recipeImgs[0]}}"></image>
+						<text>{{item.recipeName}}</text>
+					</mp-slideview>
+				</view>
+				<view class="add" bindtap="_getAdd" wx:if="{{isShow}}">
+					<mp-icon icon="add" color="#ccc" size="{{40}}" class="icon"></mp-icon>
+					<!-- <image src="../../tabs/add.png" class="icon"></image> -->
 				</view>
 			</view>
 		</view>
 		<view wx:elif="{{currentId == 2}}">
 			<view class="cateList">
-				<view class="weui-cells">
-					<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
-						<mp-cell value="零食类" footer="左划更多"></mp-cell>
-					</mp-slideview>
-				</view>
-				<view class="weui-cells">
-					<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
-						<mp-cell value="零食类" footer="左划更多"></mp-cell>
-					</mp-slideview>
-				</view>
-				<view class="weui-cells">
-					<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
-						<mp-cell value="左滑可以删除" footer="说明文字"></mp-cell>
+				<view class="weui-cells" wx:for="{{cateList}}" wx:key="_id">
+					<mp-slideview buttons="{{sawButtons}}" bindbuttontap="_navigateList" data-recipeid="{{item._id}}" data-typename="{{item.typeName}}">
+						<mp-cell value="{{item.typeName}}" footer="左划更多"></mp-cell>
 					</mp-slideview>
 				</view>
 			</view>
-
 		</view>
 		<view wx:elif="{{currentId == 3}}">
 			<view class="likeList">
-				<view class="likeList-item">
-					<image src="../../tabs/index/6.png"></image>
-					<text>全麦卷饼</text>
+				<view class="likeList-item" wx:for="{{likeFood}}" wx:key="_id" bindtap="_getLikedetail" data-id="{{item._id}}">
+					<image src="{{item.recipeImgs[0]}}"></image>
+					<text>{{item.recipeName}}</text>
+				</view>
+			</view>
+		</view>
+		<view wx:elif="{{currentId == 4}}">
+			<view class="cateList">
+				<view class="weui-cells" wx:for="{{auditList}}" wx:key="_id">
+				<!-- 管理员操作 -->
+					<mp-slideview buttons="{{auditButtons}}" bindbuttontap="_auditList" data-recipeid="{{item._id}}" data-typename="{{item.recipeName}}" data-id="{{item._id}}" wx:if="{{!isUser}}" >
+						<mp-cell value="{{item.recipeName}}" footer="待审核"></mp-cell>
+					</mp-slideview>
+					<!-- 用户操作 -->
+					<mp-slideview buttons="{{userButtons}}" bindbuttontap="_auditList" data-recipeid="{{item._id}}" data-typename="{{item.recipeName}}" data-id="{{item._id}}"  wx:else>
+						<mp-cell value="{{item.recipeName}}" footer="{{item.status == 3 ? '审核中' : '审核不通过'}}"></mp-cell>
+					</mp-slideview>
 				</view>
 			</view>
 		</view>

@@ -2,27 +2,24 @@
 <view class="search">
 	<form>
 		<view class="search-item">
-			<input placeholder="请搜索关键词" name="search"></input>
+			<input placeholder="请搜索关键词" name="search" bindinput="_keyworksInput" value="{{keywords}}"></input>
 			<mp-icon icon="search" size="{{20}}" class="searchIcon"></mp-icon>
 		</view>
-		<button bindtap="_getDemo">搜索</button>
+		<button bindtap="_getSearchList">搜索</button>
 	</form>
 </view>
 <view class="search-con">
 	<view class="hotSearch">
 		<view class="title">热门搜索</view>
 		<view class="conlist">
-			<text>慕斯蛋糕</text>
-			<text>巧克力</text>
-			<text>牛奶</text>
-			<text>巧克力</text>
-			<text>牛奶</text>
+			<text wx:for="{{hotSearch}}" wx:key="*this" bindtap="_keywords" data-value="{{item}}">{{item}}</text>
 		</view>
 	</view>
 	<view class="nearSearch">
 		<view class="title">近期搜索</view>
     <view class="conlist">
-			<text>暂无记录</text>
+		<text wx:for="{{list}}" wx:key="*this" bindtap="_keywords" data-value="{{item}}">{{item}}</text>
+			<text hidden="{{isHidden}}">暂无记录</text>
 		</view>
 	</view>
 </view>

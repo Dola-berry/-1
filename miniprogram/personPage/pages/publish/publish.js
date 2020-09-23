@@ -1,5 +1,6 @@
 // personPage/pages/publish/publish.js
 import Api from '../../../utils/person.js';
+import {openid} from '../../../utils/config.js'
 Page({
 
   data: {
@@ -11,7 +12,7 @@ Page({
     this.getMenus()
   },
   async getMenus(){
-    let res = await Api._findManageItem();
+    let res = await Api._findManageItem({status:1});
     this.setData({
       menus:res.data
     })
@@ -51,11 +52,19 @@ Page({
       })
       return
     }
+    let {_openid} = wx.getStorageSync('userInfo');
     data.views = 0;
     data.fav = 0;
     let curr_time = new Date();
     data.addtime = this.myformatter(curr_time);
-    data.status = 1;
+    
+    if(_openid == openid){
+      // console.log(_openid,openid)
+      data.status = 1;
+    }else{
+      
+      data.status = 3;
+    }
     let uploaders = await this._doImage(this.data.files);
     data.recipeImgs = uploaders.map(item => {
       return item.fileID
@@ -64,20 +73,25 @@ Page({
     if(res._id) {
       wx.showToast({
         title: '发布成功',
+        duration:2000
       })
-      
+      wx.switchTab({
+        url:'../../../pages/mine/mine'
+      })
     }
     
   },
   // 格式化时间
-  myformatter(date){         
-    var strDate = date.getFullYear()+"-"; 
-    strDate += date.getMonth()+1+"-";       
-    strDate += date.getDate()+"-";      
-    strDate += date.getHours()+":";     
-    strDate += date.getMinutes()+":";       
-    strDate += date.getSeconds();     
-    return strDate ;  
+  myformatter(date){       
+    let Y = (date.getFullYear()).toString().padStart(2,'0') 
+    let M = ( date.getMonth() + 1 ).toString().padStart(2,'0') 
+    let D = (date.getDate()).toString().padStart(2,'0') 
+    let h = (date.getHours()).toString().padStart(2,'0') 
+    let m = (date.getMinutes()).toString().padStart(2,'0') 
+    let s = (date.getSeconds()).toString().padStart(2,'0') 
+    let strDate = Y + '-' + M + '-' + D +' ' + h + ':' + m + ':' + s
+    
+    return strDate;
 },
   // 图片上传处理
   async _doImage(files){

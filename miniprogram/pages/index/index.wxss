@@ -15,19 +15,26 @@
   transform: translateX(-50%);
   width: 700rpx;
 }
-.weui-search-bar__form {
-  background-color: transparent !important;
+.search-item{
+  float: left;
+  width: 450rpx;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 90rpx;
+
 }
-.banner .bg .weui-search-bar__box,
-.banner .bg .weui-search-bar__label {
-  background-color:#E6F2F0 ;
-  border-radius: 20rpx;
+.search-item input {
+background-color: #E6F2F0;
+  height: 90rpx;
+  border-radius: 40rpx;
+  width:635rpx;
+  padding-left: 50rpx;
+  font-size: 24rpx;
 }
-.banner .bg .weui-search-bar{
-  border-radius: 20rpx;
-  padding: 0;
-  padding-right: 20rpx;
-  background-color: #E6F2F0;
+ .search-item .searchIcon{
+position: absolute;
+left: 10rpx;
+top: 0rpx;
 }
 /* 搜索banner */
 /* 分类 */
@@ -90,16 +97,21 @@
   padding: 20rpx;
 }
 .hot-list .hot-list-item .hotImg {
-  height: 300rpx;
-  width:280rpx;
+  height: 261rpx;
+  width: 280rpx;
   margin: 0 auto;
   display: block;
-  border-bottom: 2rpx solid #ccc;
+  /* padding: 20rpx 0; */
+  border-radius: 20rpx;
+  
 }
 .hot-list .hot-list-item .tit {
   font-weight: bold;
   line-height: 60rpx;
   display: block;
+  border-top: 2rpx solid #ccc;
+  margin-top: 20rpx;
+  padding: 10rpx;
 }
 .hot-list .hot-list-item .footitem {
   display: flex;
@@ -117,5 +129,7 @@
 .hot-list .hot-list-item .footitem  text{
   vertical-align: middle;
   color: #ccc;
+  margin-left: 10rpx;
+  font-size: 24rpx;
 }
 /* 热门 */

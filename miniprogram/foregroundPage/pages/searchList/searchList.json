@@ -3,5 +3,5 @@
     "mp-navigation-bar": "../../../miniprogram_npm/weui-miniprogram/navigation-bar/navigation-bar"
 },
 "navigationStyle": "custom",
-"navigationBarTitleText": "列表页"
+"navigationBarTitleText": "搜索页"
 }

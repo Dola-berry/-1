@@ -28,11 +28,12 @@
 		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
-	"appid": "wxd44759b667e4680b",
+	"appid": "wx356f03b00b7b0564",
 	"projectname": "demo",
-	"libVersion": "2.8.1",
+	"libVersion": "2.12.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -108,6 +109,21 @@
 					"id": -1,
 					"name": "personPage/pages/publish/publish",
 					"pathName": "personPage/pages/publish/publish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "foregroundPage/pages/searchList/searchList",
+					"pathName": "foregroundPage/pages/searchList/searchList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "foregroundPage/pages/detail/detail",
+					"pathName": "foregroundPage/pages/detail/detail",
+					"query": "id= 6518b7395f4cd90900af5bf739f26d6f",
 					"scene": null
 				}
 			]

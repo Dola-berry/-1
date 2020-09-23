@@ -1,5 +1,6 @@
 // foregroundPage/pages/list/list.js
 import Api from '../../../utils/person.js'
+let db = wx.cloud.database();
 Page({
 
   /**
@@ -9,16 +10,14 @@ Page({
     foodList: [],
     pagesize: 6,
     page: 1,
-    typename: '',
+    searchName: '',
     color: '#000',
     background: '#A3D399',
     show: true,
     isNone: false,
-    recipeid: '',
     isMore: true,
-    openid:''
+    keywords:''
   },
-  // 下拉底部下一页
   onReachBottom() {
     this.data.page++;
     this.getList()
@@ -31,22 +30,18 @@ Page({
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('acceptDataFromOpenerPage', (res) => {
       let {
-        recipeid,
-        typename,
-        openid
+        keywords
       } = res;
       this.setData({
-        typename,
-        recipeid,
-        openid
+        keywords,
+        searchName:keywords + '搜索结果',
       })
       this.getList()
     })
   },
-  // 获取列表
   async getList() {
-    let recipeid = this.data.recipeid;
-    let _openid = this.data.openid;
+    let keywords = this.data.keywords;
+    // let _openid = this.data.openid;
     if (!this.data.isMore) {
       return
     }
@@ -55,11 +50,12 @@ Page({
     })
     let pagesize = this.data.pagesize;
     let skip = (this.data.page - 1) * pagesize;
-    let res = await Api._getFoodList({
-      recipeId: recipeid,
-      status: 1,
-      _openid
-    }, pagesize, skip, 'addtime', 'desc');
+    let res = await db.collection('re-recipes').where({
+      recipeName:db.RegExp({
+        regexp:keywords,
+        options:'i'
+      })
+    }).limit(pagesize).skip(skip).orderBy('addtime','desc').get()
     wx.hideLoading()
     if (res.data.length == 0) {
       if (this.data.foodList.length == 0) {
@@ -89,8 +85,8 @@ Page({
       foodList: this.data.foodList.concat(res.data)
     })
   },
-  // 跳转到详情页
-  _getDeatail(e){
+   // 跳转到详情页
+   _getDeatail(e){
     let id = e.currentTarget.dataset.id
     let detailInfo = this.data.foodList.find(item => item._id == id);
     wx.navigateTo({

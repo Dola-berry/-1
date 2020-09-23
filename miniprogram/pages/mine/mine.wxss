@@ -3,7 +3,7 @@ page {
   background-color:#f2f8f7;
 }
 .login {
-  height: 600rpx;
+  height: 515rpx;
   width: 750rpx;
   position: relative;
   background-color: #A3D399;
@@ -15,15 +15,17 @@ page {
 .login .info {
   position: absolute;
   top: 140rpx;
-  left: 37%;
-  width:200rpx;
+  width: 100%;
   height: 200rpx;
   text-align: center;
+  
 }
 .login .info image {
-  width: 100rpx;
-  height: 100rpx;
+  display: block;
+  width: 150rpx;
+  height: 150rpx;
   border-radius: 50%;
+  margin: 10rpx auto;
 }
 .login .info  text {
   display: block;
@@ -55,22 +57,27 @@ width: 100%;
 justify-content: space-between;
 flex-wrap: wrap;
 }
+.category .cateCon .foodList .foodList-item .weui-slideview__btn-group_warn .weui-slideview__btn {
+  height: 500rpx;
+}
 .category .cateCon .likeList .likeList-item,
 .category .cateCon .foodList .foodList-item{
   background-color: #fff;
   border-radius: 40rpx;
-  padding-top: 20rpx;
   width: 350rpx;
   text-align: center;
   height: 400rpx;
   box-sizing: border-box;
   border: 2rpx solid #ccc;
   margin-bottom: 20rpx;
+  overflow: hidden;
 }
 .category .cateCon .likeList .likeList-item image,
 .category .cateCon .foodList .foodList-item image{
   width:320rpx;
   height: 300rpx;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
 }
 .category .cateCon .likeList .likeList-item text
 .category .cateCon .foodList .foodList-item text{
@@ -78,8 +85,19 @@ flex-wrap: wrap;
   height: 50rpx;
   line-height: 50rpx;
 }
-.category .cateCon .foodList .foodList-item .icon {
-  line-height:360rpx ;
+.category .cateCon .foodList .add {
+  border-radius: 40rpx;
+  width: 100rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #ccc;
+  position: fixed;
+  right: 20rpx;
+  bottom: 40rpx;
+  background-color: #fff;
+  z-index: 99;
 }
 /* .category .cateCon .cateList{
   width: 100%;

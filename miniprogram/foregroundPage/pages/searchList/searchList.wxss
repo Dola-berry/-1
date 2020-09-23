@@ -14,16 +14,16 @@ page {
   height: auto;
   margin-bottom: 20rpx;
   background-color: #fff;
-  border: 2rpx solid #A3D399;
 }
 .list .list-item .img {
+  width: 300rpx;
   height: 300rpx;
 }
 .list .list-item .img image{
-  margin: 35rpx 10rpx 0 10rpx;
   width: 300rpx;
 height: 243rpx;
 border-radius: 20rpx;
+margin-top: 35rpx;
 
 }
 .list .list-item .txt {
@@ -34,12 +34,6 @@ border-radius: 20rpx;
 }
 .list .list-item .txt view .icon{
   margin-bottom: 10rpx;
-}
-.scicon {
-  width: 30rpx;
-  height: 30rpx;
-  /* vertical-align: middle; */
-  
 }
 .list .list-item .txt .list-foot{
   display: flex;
@@ -55,7 +49,7 @@ border-radius: 20rpx;
   vertical-align: middle;
   color: #ccc;
   display: inline-block;
-  margin: 10rpx;
+  margin-left: 10rpx;
   font-size: 22rpx;
 }
 .none {

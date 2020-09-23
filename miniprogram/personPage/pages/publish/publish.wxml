@@ -1,21 +1,21 @@
 <!--personPage/pages/publish/publish.wxml-->
 <form bindsubmit="_bindPublish">
-	<view class="weui-cells__title">美食名称</view>
+	<view class="weui-cells__title">零食名称</view>
 	<view class="weui-cells weui-cells_after-title">
 		<view class="weui-cell">
 			<view class="weui-cell__bd">
-				<input class="weui-input" placeholder="请输入美食名称" name="recipeName" />
+				<input class="weui-input" placeholder="请输入零食名称" name="recipeName" />
 			</view>
 		</view>
 	</view>
-	<view class="weui-cells__title">美食分类</view>
+	<view class="weui-cells__title">零食分类</view>
 	<view class="page-section">
 		<radio-group name="recipeId">
 			<label wx:for="{{menus}}" wx:key="_id" class="radio-item">
 				<radio value="{{item._id}}" checked="true" />{{item.typeName}}</label>
 		</radio-group>
 	</view>
-	<view class="weui-cells__title">美食图片</view>
+	<view class="weui-cells__title">零食图片</view>
 	<view class="page__bd">
 		<mp-cells>
 			<mp-cell>
@@ -23,7 +23,7 @@
 			</mp-cell>
 		</mp-cells>
 	</view>
-	<view class="weui-cells__title">文本域</view>
+	<view class="weui-cells__title">零食描述</view>
 	<view class="weui-cells weui-cells_after-title">
 		<view class="weui-cell">
 			<view class="weui-cell__bd">

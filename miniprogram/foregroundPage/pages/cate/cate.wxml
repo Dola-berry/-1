@@ -3,18 +3,15 @@
   	<!-- banner -->
 	<view class="banner">
 		<image src="../../../tabs/index/banner.jpg"></image>
-		<view class="page__bd bg">
-			<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+		<view class="bg">
+			<view class="search-item">
+				<input placeholder="请搜索关键词" name="search" bindinput="_keyworksInput" value="{{keywords}}" confirm-type="search" bindchange="_getSearchList"></input>
+				<mp-icon icon="search" size="{{20}}" class="searchIcon"></mp-icon>
+			</view>
 		</view>
 	</view>
   <!-- 分类 -->
   <view class="hot">
-		<mp-cell title="甜品/饮品类" link class="hotfood" bindtap="navigate"></mp-cell>
-		<mp-cell title="正餐类" link class="hotfood"></mp-cell>
-		<mp-cell title="零食类" link class="hotfood"></mp-cell>
-		<mp-cell title="烘焙类" link class="hotfood"></mp-cell>
-		<mp-cell title="外国美食类" link class="hotfood"></mp-cell>
-		<mp-cell title="烧烤/小吃类" link class="hotfood"></mp-cell>
-		<mp-cell title="火锅/砂锅类" link class="hotfood"></mp-cell>
+		<mp-cell title="{{item.typeName}}" link class="hotfood" bindtap="_navigateList" wx:for="{{menus}}" wx:key="_id" data-recipeid="{{item._id}}" data-typename="{{item.typeName}}"></mp-cell>
 	</view>
 </view>

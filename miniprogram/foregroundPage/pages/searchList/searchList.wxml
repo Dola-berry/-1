@@ -1,5 +1,5 @@
 <!--foregroundPage/pages/list/list.wxml-->
-<mp-navigation-bar show="{{show}}" color="{{color}}" background="{{background}}" title="{{typename}}" back="{{true}}"></mp-navigation-bar>
+<mp-navigation-bar show="{{show}}" color="{{color}}" background="{{background}}" title="{{searchName}}" back="{{true}}"></mp-navigation-bar>
 <view class="list">
 	<view class="list-item" wx:for="{{foodList}}" wx:key="_id" bindtap="_getDeatail" data-id="{{item._id}}">
 		<view class="img">
@@ -16,19 +16,19 @@
 					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}" wx:for="{{4}}" wx:key="index"></mp-icon>
 				</view>
 				<view class="icon" wx:elif="{{item.fav >= 5 && item.fav < 10}}">
-					<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{2}}" wx:key="index"></mp-icon>
+				<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{2}}" wx:key="index"></mp-icon>
 					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}" wx:for="{{3}}" wx:key="index"></mp-icon>
 				</view>
 				<view class="icon" wx:elif="{{item.fav >= 10 && item.fav < 15}}">
-					<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{3}}" wx:key="index"></mp-icon>
+				<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{3}}" wx:key="index"></mp-icon>
 					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}" wx:for="{{2}}" wx:key="index"></mp-icon>
 				</view>
 				<view class="icon" wx:elif="{{item.fav >= 15 && item.fav < 20}}">
-					<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{4}}" wx:key="index"></mp-icon>
+				<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{4}}" wx:key="index"></mp-icon>
 					<mp-icon color="#ccc" icon="star" type="field" size="{{25}}" wx:for="{{1}}" wx:key="index"></mp-icon>
 				</view>
 				<view class="icon" wx:if="{{item.fav >= 20}}">
-					<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{5}}" wx:key="index"></mp-icon>
+				<mp-icon color="yellow" icon="star" type="field" size="{{25}}" wx:for="{{5}}" wx:key="index"></mp-icon>
 				</view>
 				<view class="list-foot">
 					<view class="user">
@@ -36,12 +36,11 @@
 						<text>{{item.userInfo.nickName}}</text>
 					</view>
 					<view class="like">
-						<mp-icon icon="like" size="{{20}}" color="#A3D399"></mp-icon>
-						<!-- <image src="../../../tabs/index/sC11.png" class="scicon"></image> -->
+						<mp-icon icon="like" size="{{25}}" color="#ccc"></mp-icon>
 						<text>{{item.fav}}</text>
 					</view>
 					<view class="eyes">
-						<mp-icon icon="eyes-on" size="{{20}}" color="#ccc"></mp-icon>
+						<mp-icon icon="eyes-on" size="{{25}}" color="#ccc"></mp-icon>
 						<text>{{item.views}}</text>
 					</view>
 				</view>
@@ -49,5 +48,5 @@
 		</view>
 	</view>
 </view>
-<view class="none" hidden="{{!isNone}}">该分类暂无数据哦!!!</view>
+<view class="none" hidden="{{!isNone}}">该关键词暂无数据哦!!!</view>
 <view class="none" style="margin-top:0" hidden="{{isMore}}">已经到最低了哦!!!</view>

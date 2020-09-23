@@ -1,32 +1,55 @@
 <!--foregroundPage/pages/detail/detail.wxml-->
 <view class="detail">
 	<view class="detail-item">
-		<image src="../../../tabs/index/6.png"></image>
-		<view class="title">SKORPOR FULLKORN 全麦卷饼</view>
+		<!-- <image src="{{detailInfo.recipeImgs}}"></image> -->
+		<swiper class="swImg" autoplay circular indicator-dots>
+			<block wx:for="{{detailInfo.recipeImgs}}" wx:key="*this" wx:for-item="val">
+				<swiper-item>
+					<image src="{{val}}" class="hotImg"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="title">{{detailInfo.recipeName}}</view>
 		<view class="address">
-			<view class="user">小樱</view>
+			<view class="user">{{detailInfo.userInfo.nickName}}</view>
 			<view class="like">
-				<text>2</text>收藏
+				<text>{{detailInfo.fav}}</text>收藏
 			</view>
 			<view class="eyes">
-				<text>22</text>浏览
+				<text>{{detailInfo.views}}</text>浏览
 			</view>
 		</view>
 	</view>
 	<view class="detail-item-con">
 		<view class="description">
-			<view>美食描述</view>
-			<text>酥脆的烤全麦卷。早餐时搭配黄油、奶酪和橘子酱食用，或者伴着酸奶享用。</text>
+			<view>零食描述</view>
+			<text>{{detailInfo.recipeInfo}}</text>
 		</view>
 	</view>
+	<view class="message" wx:if="{{isShow}}">
+		<view class="tit">碎言碎语<text>({{messageCount}}条留言)</text></view>
+		<view class="send">
+			<input placeholder="说两句吧" class="val" value="{{message}}" bindinput="_inputValue"></input><button size="mini" bindtap="_sendMessage">发送</button>
+		</view>
+		<view class="list">
+			<view class="list-item" wx:for="{{messageList}}" wx:key="_id">
+				<view class="tit">
+					<image src="{{item.avatarUrl}}"></image> {{item.nickName}}：<text class="del" bindtap="_delMessage" data-id="{{item._id}}" data-idx="{{index}}">删除</text><text>{{item.addtime}}</text>
+				</view>
+				<view class="txt">{{item.message}}</view>
+			</view>
+			<view wx:if="{{messageList.length == 0 }}" style="color:#ccc;text-align:center">来第一个留言吧</view>
+		</view>
+	</view>
+	<view class="copyRight">本页{{detailInfo.recipeName}}零食内容均来自互联网，如有违反您的权益【请与我们联系】</view>
 	<view class="footer">
-		<view class="like">
-			<mp-icon icon="like" size="{{25}}" color="#ccc"></mp-icon>
-			<text>关注</text>
-		</view>
-		<view class="share">
-			<mp-icon icon="share" size="{{25}}" color="#fff"></mp-icon>
-			<text>分享给朋友</text>
-		</view>
+		<button class="like" bindtap="_getLike" size="mini">
+			<image src="../../../tabs/index/sc.png" class="scicon" wx:if="{{isLike}}"></image>
+			<image src="../../../tabs/index/sc1.png" class="scicon" wx:else></image>
+			<text>{{isLike ? '已关注' : '关注'}}</text>
+		</button>
+		<button class="share" size="none" open-type="share">
+			<mp-icon icon="share" size="{{25}}" color="#fff"></mp-icon><text>分享给朋友</text>
+		</button>
 	</view>
 </view>

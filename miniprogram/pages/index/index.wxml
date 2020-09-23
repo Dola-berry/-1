@@ -2,41 +2,44 @@
 	<!-- banner -->
 	<view class="banner">
 		<image src="../../tabs/index/banner.png"></image>
-		<view class="page__bd bg">
-			<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+		<view class="bg">
+			<view class="search-item">
+				<input placeholder="请搜索关键词" name="search" bindinput="_keyworksInput" value="{{keywords}}" confirm-type="search" bindchange="_getSearchList"></input>
+				<mp-icon icon="search" size="{{20}}" class="searchIcon"></mp-icon>
+			</view>
 		</view>
 	</view>
 	<!-- 菜单栏 -->
 	<view class="menus">
-	<view class="menu-list active}}" bindtap="click">
+		<view class="menu-list active}}" bindtap="click">
 			<image src="../../tabs/index/fl.png"></image>
-			<text>美食分类</text>
+			<text>全部分类</text>
 		</view>
-		<view class="menu-list" wx:for="{{menus}}" wx:key="id" bindtap="_getlist">
+		<view class="menu-list" wx:for="{{menus}}" wx:key="_id" bindtap="_navigateList" data-recipeid="{{item._id}}" data-typename="{{item.typeName}}">
 			<image src="{{item.url}}"></image>
-			<text>{{item.cateName}}</text>
+			<text>{{item.typeName}}</text>
 		</view>
 	</view>
 </view>
 
 <!-- 热门 -->
 <view class="hot">
-	<mp-cell title="HOT" link class="hotfood">
-		<view>热门美食</view>
+	<mp-cell title="HOT" class="hotfood">
+		<view>热门零食</view>
 	</mp-cell>
 	<view class="hot-list">
-		<view class="hot-list-item" wx:for="{{con}}" wx:key="cid" bindtap="_getdetail" data-cid="{{item.cid}}">
-			<image src="{{item.src}}" class="hotImg"></image>
-			<view class="tit">{{item.tit}}</view>
+		<view class="hot-list-item" wx:for="{{hotFoodList}}" wx:key="_id" bindtap="_getdetail" data-id="{{item._id}}">
+			<image src="{{item.recipeImgs[0]}}" class="hotImg"></image>
+			<view class="tit">{{item.recipeName}}</view>
 			<view class="footitem">
 				<view class="item-left">
-					<image class="userImg" src="{{item.s_src}}"></image>
-					<text>{{item.user}}</text>
+					<image class="userImg" src="{{item.userInfo.avatarUrl}}"></image>
+					<text>{{item.userInfo.nickName}}</text>
 				</view>
-        <view  class="item-right">
-          <mp-icon icon="eyes-on" color="black" size="{{25}}"></mp-icon>
-          <text>{{item.num}}</text>
-        </view>
+				<view class="item-right">
+					<mp-icon icon="eyes-on" color="black" size="{{20}}"></mp-icon>
+					<text>{{item.views}}</text>
+				</view>
 			</view>
 		</view>
 	</view>
